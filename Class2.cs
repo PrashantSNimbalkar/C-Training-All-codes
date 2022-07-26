@@ -2,40 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Params
 {
     class Class2
     {
+        static int method(params int[] AA)
+        {
+            int x = 0;
+            foreach (int xx in AA)
+            {
+                Console.WriteLine(xx);
+          
+            }
+            return x;
+           
+        }
         static void Main(string[] args)
         {
-
-
-
-            string str1;
-            char[] arr1;
-            int l, i;
-            l = 0;
-            Char ch;
-
-            str1 = Console.ReadLine();
-            l = str1.Length;
-
-            arr1 = str1.ToCharArray(0, l);
-
-            for (i = 0; i < l; i++)
-            {
-                ch = arr1[i];
-
-                if (char.IsLower(ch))
-                {
-                    Console.Write(Char.ToUpper(ch));
-                }
-                else
-                    Console.Write(Char.ToLower(ch));
-            }
+            int re = method(10,500,30);
 
         }
-
-
     }
 }

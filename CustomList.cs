@@ -1,74 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
-namespace ConsoleApp1.NET
+namespace ConsoleApp1.ACollections.Date23062022
 {
 
-    public class Student
+    class Stud: IComparable<Stud>
     {
+        int rollno;
+        string name;
+        int per;
 
-        public int RollNo { get; set; }
-        public String Name { get; set; }
+
+        public int CompareTo(Stud S2)
+        {
+
+            /*  return this.Name.CompareTo(S2..Name); */  // for decending 
+            return S2.Name.CompareTo(this.Name);   //For Acending Just Need To Change s2.name  And this.name
+        }
+
+
+        public override string ToString()           // This Method Is Important 
+        {
+            return $"{rollno} {name} {per}";
+        }
+
+
+
+
+
+        public Stud(int rollno , string name , int per)
+        {
+            this.rollno = rollno;
+            this.name = name;
+            this.per = per;
+
+        }
+
+        public int Rollno { get => rollno; set => rollno = value; }
+        public string Name { get => name; set => name = value; }
+        public int Per { get => per; set => per = value; }
+
+
+        public void m(int rollno, string name, int per)
+        {
+            Console.WriteLine($"{rollno} {name} {per}");
+        }
+
+
     }
-
-    public class Course
-    { 
-       public int Id { get; set; }
-        public string Name { get; set; }
-
-        public List<Student> Students = new List<Student>();
-    }
-   
-
 
     class CustomList
     {
         static void Main(string[] args)
         {
 
+            List<Stud> x = new List<Stud>();
+
+            x.Add(new Stud(01,"Aji",90));
+            x.Add(new Stud(02,"Ajin",90));
+            x.Add(new Stud(01, "Aji", 90));
+            x.Add(new Stud(02, "Ajin", 90));
+            x.Add(new Stud(01, "Aji", 90));
+            x.Add(new Stud(02, "Ajin", 90));
+            x.Add(new Stud(01, "Aji", 90));
+            x.Add(new Stud(02, "Ajin", 90));
+
+            x.Add(new Stud(100, "Pune", 100));
+
             
-                
 
-            List<Course> coures = new List<Course>() {
-                new Course{Id=101,Name="C#",Students={
-                                         new Student{RollNo=1,Name="Rohan"},
-                                         new Student{RollNo=2,Name="Suraj"},
-                                         new Student{RollNo=3,Name="Amit"},
-                                            }
-                },
-                  new Course{Id=102,Name="MVC",Students={
-                                         new Student{RollNo=4,Name="Ajinkya"},
-                                         new Student{RollNo=5,Name="Amol"},
-                                         new Student{RollNo=6,Name="Neha"},
-                                            }
-                },
-                      new Course{Id=103,Name="SQL",Students={
-                                         new Student{RollNo=7,Name="Smita"},
-                                         new Student{RollNo=8,Name="Gaurav"},
-                                         new Student{RollNo=9,Name="Manohar"},
-                                            }
-                },
-
-
-                   new Course { Id = 102 , Name= "Java" , Students = {    
-                                             new Student { RollNo = 10 , Name = "Prakash"}     }
-                   },
-
-                   new Course { Id = 103 , Name = "C++" , Students = { 
-                                }, }
-
-            };
-
-            foreach (Course c in coures)
+            foreach (object X1 in x)
             {
-                Console.WriteLine($"{c.Id}  {c.Name}");
-                foreach (Student s in c.Students)
-                {
-                    Console.WriteLine($"\t {s.Name}");
-                }
+                Console.WriteLine(X1);
             }
+           
 
+
+
+            
         }
     }
 }
