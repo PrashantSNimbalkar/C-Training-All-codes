@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Params
 {
     class Class1
     {
-        static int x = 10;
+
+
+
+        static void method(params int[]  AA)
+        {
+
+            foreach (int xx in AA)
+            {
+                Console.WriteLine(xx);
+            }
+
+        }
+
 
         static void Main(string[] args)
         {
 
-            //Arithmatic Progression
-            int a2 = int.Parse(Console.ReadLine());
-            int a3 = int.Parse(Console.ReadLine());
+            method(10,20,30);
 
-            int n = int.Parse(Console.ReadLine());
-            int d = a3 - a2;
-
-            for (int i = 4; i <= n; i++)
-            {
-                a3 = a3 + d;
-
-            }
-            Console.WriteLine(a3);
 
         }
+
     }
 }
